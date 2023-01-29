@@ -2,4 +2,4 @@
 
 * Fork the Repo
 * Change Logo, Credits
-* Deploy!
+* Deploy on any Static Host eg. Netlify, GitHub Pages, Cloudflare Pages etc.
