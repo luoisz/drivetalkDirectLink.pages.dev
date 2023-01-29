@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Download Google Drive Files Securely - Hash Hackers</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script src="https://geolocation.zindex.eu.org/api.js"></script>
+      <link rel="icon" href="https://publiclinks.hashhackers.com/favicon.png">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4/dist/materia/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.js" integrity="sha256-8L3yX9qPmvWSDIIHB3WGTH4RZusxVA0DDmuAo4LjnOE=" crossorigin="anonymous"></script>
+      <style>
+         .loading {position: fixed;z-index: 999;height: 2em;width: 2em;overflow: show;margin: auto;top: 0;left: 0;bottom: 0;right: 0;}.loading:before {content: '';display: block;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0, .8));background: -webkit-radial-gradient(rgba(20, 20, 20,.8), rgba(0, 0, 0,.8));}.loading:not(:required) {font: 0/0 a;color: transparent;text-shadow: none;background-color: transparent;border: 0;}.loading:not(:required):after {content: '';display: block;font-size: 10px;width: 1em;height: 1em;margin-top: -0.5em;-webkit-animation: spinner 150ms infinite linear;-moz-animation: spinner 150ms infinite linear;-ms-animation: spinner 150ms infinite linear;-o-animation: spinner 150ms infinite linear;animation: spinner 150ms infinite linear;border-radius: 0.5em;-webkit-box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;box-shadow: rgba(255,255,255, 0.75) 1.5em 0 0 0, rgba(255,255,255, 0.75) 1.1em 1.1em 0 0, rgba(255,255,255, 0.75) 0 1.5em 0 0, rgba(255,255,255, 0.75) -1.1em 1.1em 0 0, rgba(255,255,255, 0.75) -1.5em 0 0 0, rgba(255,255,255, 0.75) -1.1em -1.1em 0 0, rgba(255,255,255, 0.75) 0 -1.5em 0 0, rgba(255,255,255, 0.75) 1.1em -1.1em 0 0;}@-webkit-keyframes spinner {0% {-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);}100% {-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-ms-transform: rotate(360deg);-o-transform: rotate(360deg);transform: rotate(360deg);}}@-moz-keyframes spinner {0% {-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);}100% {-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-ms-transform: rotate(360deg);-o-transform: rotate(360deg);transform: rotate(360deg);}}@-o-keyframes spinner {0% {-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);}100% {-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-ms-transform: rotate(360deg);-o-transform: rotate(360deg);transform: rotate(360deg);}}@keyframes spinner {0% {-webkit-transform: rotate(0deg);-moz-transform: rotate(0deg);-ms-transform: rotate(0deg);-o-transform: rotate(0deg);transform: rotate(0deg);}100% {-webkit-transform: rotate(360deg);-moz-transform: rotate(360deg);-ms-transform: rotate(360deg);-o-transform: rotate(360deg);transform: rotate(360deg);}}.footer {left: 0;bottom: 0;width: 100%;color: white;text-align: center;z-index: 1030;}html {position: relative;min-height: 100%;}.disabled-class {display: none;}body {margin-bottom: 90px;}.footer {position: absolute;bottom: 0;width: 100%;height: 100px;line-height: 30px;background-color: #222222;}.footer > .container {padding: 15px 0;}#account_list table td:first-child {cursor: pointer;}.account_row.loading .close, .account_row:not(.loading) .spinner-border {display: none;}pre{color:unset;}
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="loading" id="spinner">Loading&#8230;</div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+         <a class="navbar-brand" href="/"><img border="0" alt="Hash Hackers" src="https://images.cdn.hashhackers.com/logo/logo-white-d.svg" width="150px"></a>
+         <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="https://telegram.dog/HashHackers" target="_blank">Telegram</a>
+               </li>
+            </ul>
+         </div>
+      </nav>
+      <div class="container">
+      <div class="row">
+      <div class="col">
+      <div class="card my-4">
+         <div class="card-body">
+            <center>
+               <h4>Download and Share</h4>
+               <h4>Google Drive Links</h4>
+               <p class="mt-3">You can get direct download links to Public Google Drive Files. (for Private Files, check more details in Learn More Section)</p>
+               <div class="form-group align-items-center">
+                  <p class="col-12 col-md-8" id="status"></p>
+                  <div class="row justify-content-center file">
+                     <div class="col-12 col-md-8"> <input id="driveid" type="text" class="form-control" placeholder="Enter GDrive Link" value="" required></div>
+                     <div class="col-12 col-md-8"> <button id="encrypt" style="margin-top: 5px;" class="btn btn-primary btn-block">Convert</button></div>
+                  </div>
+                  <br>
+                  <div class="row justify-content-center hide" style="display:none;">
+                     <div class="col-12 col-md-8"> <input id="result" type="text" class="form-control" placeholder="Temporary Link Here" value="" readonly></div>
+                     <div class="col-12 col-md-8"> <button id="download" style="margin-top: 5px;" class="btn btn-primary btn-block">Download</button></div>
+                     <div class="col-12 col-md-8"> <button id="copybuttonid" style="margin-top: 5px;" onclick="copyFunction()" onmouseout="outFunc()" class="btn btn-success btn-block">Copy Shareable Link</button></div>
+                     <div class="col-12 col-md-8"> <button id="shortlinktempurl" style="display:none; margin-top: 5px;" class="btn btn-danger btn-block">Shorten This URL</button></div>
+                  </div>
+                     <br>
+                  <div class="row justify-content-center hide" id="folder" style="display:none;"></div>
+                  <div class="row justify-content-center hide" style="display:none;">
+                    <div class="col-12 col-md-8"> <input id="publicresult" type="text" class="form-control" placeholder="Permanent Link Here" value="" readonly></div>
+                    <div class="col-12 col-md-8"> <button id="publiccopybuttonid" style="margin-top: 5px;" onclick="publiccopyFunction()" onmouseout="publicoutFunc()" class="btn btn-success btn-block">Copy Permanent Link</button></div>
+                    <div class="col-12 col-md-8"> <button id="shortlinkpermanenturl" style="display:none; margin-top: 5px;" class="btn btn-danger btn-block">Shorten This URL</button></div>
+                    <br>
+                    <p class="mt-3">Once Generated, Sharable links are valid for 24 hours, while Permanent Links are valid for as long as that particular file is available.</p>
+                    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fpubliclinks.hashhackers.com&amp;count_bg=%2379C83D&amp;title_bg=%23555555&amp;icon=&amp;icon_color=%23E7E7E7&amp;title=hits&amp;edge_flat=false">
+                  </div>
+            </center>
+            </div>
+            <div class="card-body">
+            <center>
+            <h4 onclick="showNote()">Learn More</h4>
+            <pre id="note" style="display:none;">You can use private file links too, to use them share the file with email address system@zindex.eu.org and then convert the links.
+            This website is powered by Hash Hackers and Bhadoo Cloud.
+            Links are valid for 24 hours to prevent Abuse.
+            The Backend is using 100 Servers (will increase in future) and 5000 Service Accounts (for Private Links),
+            Integrated to provide high speed and stability.
+            API is removed to prevent abuse.</pre>
+            </center>
+            </div>
+            </div>
+            </div>
+         </div>
+      </div>
+      <footer class="footer">
+         <div class="container">
+            <div class="text-muted">Made with ❤️ by <b><a href="https://twitter.com/ParveenBhadoo">Parveen Bhadoo</a></b></div>
+            <div class="text-muted">Version: <b>6.5</b> (Encrypted and Secure) | <a href="https://telegram.dog/HashHackers">Telegram</a></div>
+         </div>
+      </footer>
+      <script src="https://cdn.zindex.eu.org/publiclinks/app.min.js?v=6.5"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" type="d6385f183e1df5ee21eb696f-text/javascript"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous" type="d6385f183e1df5ee21eb696f-text/javascript"></script>
+   </body>
+</html>
